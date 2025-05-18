@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/361648217807407222/40e5a252022149898646916770396a22/artifacts
+deleted_time: 1747569170279
+end_time: 1747568443009
+entry_point_name: ''
+experiment_id: '361648217807407222'
+lifecycle_stage: deleted
+run_id: 40e5a252022149898646916770396a22
+run_name: wistful-croc-33
+run_uuid: 40e5a252022149898646916770396a22
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747568425986
+status: 3
+tags: []
+user_id: mazen

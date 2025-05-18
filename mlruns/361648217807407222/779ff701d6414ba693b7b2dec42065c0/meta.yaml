@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/361648217807407222/779ff701d6414ba693b7b2dec42065c0/artifacts
+deleted_time: 1747569170276
+end_time: 1747567796654
+entry_point_name: ''
+experiment_id: '361648217807407222'
+lifecycle_stage: deleted
+run_id: 779ff701d6414ba693b7b2dec42065c0
+run_name: charming-bug-198
+run_uuid: 779ff701d6414ba693b7b2dec42065c0
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747567784387
+status: 4
+tags: []
+user_id: mazen

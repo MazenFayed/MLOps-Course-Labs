@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/361648217807407222/3fedb783b0884f709734c6c7f6715232/artifacts
+deleted_time: 1747568332221
+end_time: 1747568326084
+entry_point_name: ''
+experiment_id: '361648217807407222'
+lifecycle_stage: deleted
+run_id: 3fedb783b0884f709734c6c7f6715232
+run_name: redolent-rat-498
+run_uuid: 3fedb783b0884f709734c6c7f6715232
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747567879499
+status: 4
+tags: []
+user_id: mazen

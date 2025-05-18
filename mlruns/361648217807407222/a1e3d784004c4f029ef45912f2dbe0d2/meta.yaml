@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/361648217807407222/a1e3d784004c4f029ef45912f2dbe0d2/artifacts
+deleted_time: 1747569170277
+end_time: 1747568399966
+entry_point_name: ''
+experiment_id: '361648217807407222'
+lifecycle_stage: deleted
+run_id: a1e3d784004c4f029ef45912f2dbe0d2
+run_name: rambunctious-asp-675
+run_uuid: a1e3d784004c4f029ef45912f2dbe0d2
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747568350306
+status: 4
+tags: []
+user_id: mazen

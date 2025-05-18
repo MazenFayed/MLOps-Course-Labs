@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/361648217807407222/1209656f4c1d4afc9d28022e6b457293/artifacts
+deleted_time: 1747569809432
+end_time: 1747569675496
+entry_point_name: ''
+experiment_id: '361648217807407222'
+lifecycle_stage: deleted
+run_id: 1209656f4c1d4afc9d28022e6b457293
+run_name: DecisionTreeClassifier_1
+run_uuid: 1209656f4c1d4afc9d28022e6b457293
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747569347624
+status: 4
+tags: []
+user_id: mazen

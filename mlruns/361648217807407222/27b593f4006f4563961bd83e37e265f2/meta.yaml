@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/361648217807407222/27b593f4006f4563961bd83e37e265f2/artifacts
+end_time: 1747574718324
+entry_point_name: ''
+experiment_id: '361648217807407222'
+lifecycle_stage: active
+run_id: 27b593f4006f4563961bd83e37e265f2
+run_name: rf_model_1
+run_uuid: 27b593f4006f4563961bd83e37e265f2
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747574706327
+status: 3
+tags: []
+user_id: mazen

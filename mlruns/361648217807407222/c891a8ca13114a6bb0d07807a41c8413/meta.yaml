@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/361648217807407222/c891a8ca13114a6bb0d07807a41c8413/artifacts
+end_time: 1747567724321
+entry_point_name: ''
+experiment_id: '361648217807407222'
+lifecycle_stage: active
+run_id: c891a8ca13114a6bb0d07807a41c8413
+run_name: fun-gnu-69
+run_uuid: c891a8ca13114a6bb0d07807a41c8413
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747567724202
+status: 4
+tags: []
+user_id: mazen
