@@ -1,15 +1,3 @@
-<<<<<<< HEAD
-
-=======
-<<<<<<< HEAD
-# MLOps Course Labs
-
-Welcome to the lab repository for the [MLOps Course](https://github.com/Heba-Atef99/MLOps-Course).
-
-Throughout this hands-on journey, you'll develop a **Bank Customer Churn Prediction** application—starting from the research phase and progressing through the full MLOps lifecycle, all the way to deployment.
-
-> **Note:** Currently, the repository contains only the `research` branch. The remaining branches will be built step by step by the reader during the course days, as part of the learning experience.
-=======
-# Bank Customer Churn Prediction
->>>>>>> 17a08a3 (Update README.md)
->>>>>>> 8ea8d40 (Update README.md)
+![Screenshot 2025-05-18 163442](https://github.com/user-attachments/assets/4f8b6d4b-396c-4982-8666-dca2015feaf9)
+![Screenshot 2025-05-18 162805](https://github.com/user-attachments/assets/adcd88c3-5168-4ae0-9951-696bc71fac79)
+![Screenshot 2025-05-18 162550](https://github.com/user-attachments/assets/1f01bb3b-084a-43d9-99e5-ff9957817c31)
