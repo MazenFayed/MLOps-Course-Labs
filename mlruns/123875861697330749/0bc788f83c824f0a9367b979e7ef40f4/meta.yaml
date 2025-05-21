@@ -1,0 +1,15 @@
+artifact_uri: file:///E:/Courses/MLops/Labs/lab3/mlruns/123875861697330749/0bc788f83c824f0a9367b979e7ef40f4/artifacts
+end_time: 1747666148419
+entry_point_name: ''
+experiment_id: '123875861697330749'
+lifecycle_stage: active
+run_id: 0bc788f83c824f0a9367b979e7ef40f4
+run_name: able-shark-381
+run_uuid: 0bc788f83c824f0a9367b979e7ef40f4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747666148335
+status: 3
+tags: []
+user_id: mazen
