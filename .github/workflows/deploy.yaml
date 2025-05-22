@@ -65,22 +65,41 @@ jobs:
 
     - name: Deploy to EC2
       run: |
-        ssh -o StrictHostKeyChecking=no -i ec2_key.pem ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
-          sudo yum update -y || sudo apt update -y
-          sudo yum install -y git docker || sudo apt install -y git docker.io
-          sudo service docker start || sudo systemctl start docker
-          sudo usermod -aG docker $USER
-          mkdir -p ~/mazen
-          cd ~/mazen
-          git clone https://github.com/${{ github.repository }} || cd $(basename "${{ github.repository }}") && git pull
-
-          aws ecr get-login-password --region ${{ secrets.AWS_REGION }} \
-            | docker login --username AWS --password-stdin ${{ steps.login-ecr.outputs.registry }}
-
-          cd $(basename "${{ github.repository }}")
-          sed -i "s|image:.*|image: $ECR_IMAGE|" docker-compose.yml
-
-          docker-compose down || true
-          docker-compose pull
-          docker-compose up -d
+        ssh -o StrictHostKeyChecking=no \
+            -i ec2_key.pem \
+            ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
+        # Update system and install dependencies
+        sudo apt-get update -y
+        sudo apt-get install -y docker.io docker-compose git
+        
+        # Start docker service
+        sudo systemctl start docker
+        sudo usermod -aG docker $USER
+        
+        # Create personal directory (modified with your name)
+        mkdir -p ~/mazen-app
+        cd ~/mazen-app
+        
+        # Clone or update repository
+        if [ -d "MLOps-Course-Labs" ]; then
+            cd MLOps-Course-Labs
+            git pull
+        else
+            git clone https://github.com/${{ github.repository }}.git
+            cd MLOps-Course-Labs
+        fi
+        
+        # Login to ECR and deploy (keep existing deployment commands)
+        aws ecr get-login-password --region ${{ secrets.AWS_REGION }} | \
+            docker login --username AWS --password-stdin ${{ steps.login-ecr.outputs.registry }}
+        
+        sed -i "s|image:.*|image: $ECR_IMAGE|" docker-compose.yml
+        
+        docker-compose down || true
+        docker-compose pull
+        docker-compose up -d
+        
+        # Add visible identifier (optional)
+        echo "This is Mazen's deployment" > ~/mazen-app/README.txt
         EOF
+        echo "Deployment completed successfully!"
