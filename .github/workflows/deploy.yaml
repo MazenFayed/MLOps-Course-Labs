@@ -68,19 +68,11 @@ jobs:
         ssh -o StrictHostKeyChecking=no \
             -i ec2_key.pem \
             ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
-        # Update system and install dependencies
-        sudo apt-get update -y
-        sudo apt-get install -y docker.io docker-compose git
-        
-        # Start docker service
-        sudo systemctl start docker
-        sudo usermod -aG docker $USER
-        
-        # Create personal directory (modified with your name)
+        # Create personal directory
         mkdir -p ~/mazen-app
         cd ~/mazen-app
         
-        # Clone or update repository
+        # Clone or update repo
         if [ -d "MLOps-Course-Labs" ]; then
             cd MLOps-Course-Labs
             git pull
@@ -89,17 +81,17 @@ jobs:
             cd MLOps-Course-Labs
         fi
         
-        # Login to ECR and deploy (keep existing deployment commands)
+        # Login to ECR
         aws ecr get-login-password --region ${{ secrets.AWS_REGION }} | \
             docker login --username AWS --password-stdin ${{ steps.login-ecr.outputs.registry }}
         
+        # Update and deploy
         sed -i "s|image:.*|image: $ECR_IMAGE|" docker-compose.yml
-        
         docker-compose down || true
         docker-compose pull
         docker-compose up -d
         
-        # Add visible identifier (optional)
-        echo "This is Mazen's deployment" > ~/mazen-app/README.txt
-        EOF
-        echo "Deployment completed successfully!"
+        # Add identification
+        echo "Deployed by Mazen on $(date)" > deployment-info.txt
+    EOF
+        echo "Deployment completed on EC2 instance."
