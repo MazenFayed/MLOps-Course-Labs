@@ -1,0 +1,6 @@
+artifact_location: file:///E:/Courses/MLops/Labs/lab3/mlruns/123875861697330749
+creation_time: 1747666148130
+experiment_id: '123875861697330749'
+last_update_time: 1747666148130
+lifecycle_stage: active
+name: Churn API Predictions

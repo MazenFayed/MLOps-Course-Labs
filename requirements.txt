@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+scikit-learn
+pydantic
+mlflow
+pytest
+prometheus_fastapi_instrumentator
