@@ -93,5 +93,5 @@ jobs:
         
         # Add identification
         echo "Deployed by Mazen on $(date)" > deployment-info.txt
-    EOF
-        echo "Deployment completed on EC2 instance."
+        EOF
+            echo "Deployment completed on EC2 instance."
