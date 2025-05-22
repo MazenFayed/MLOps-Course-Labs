@@ -39,7 +39,7 @@ jobs:
     - name: Run pytest
       run: |
         # Run tests as module to handle relative imports
-        python -m pytest tests/test_api.py -v
+        python -m pytest src/tests/test_api.py -v
 
     - name: Log in to Amazon ECR
       id: login-ecr
