@@ -7,8 +7,4 @@ name = "mlops-course-labs"
 version = "0.1.0"
 
 [tool.setuptools]
-packages = ["MLOps-Course-Labs"]  # Keep original name if needed
-include-package-data = true
-
-[tool.setuptools.package-dir]
-"" = "src"  # Consider moving your code to src/ layout if problems persist
+packages = ["MLOps_Course_Labs"]  # Use underscore naming
