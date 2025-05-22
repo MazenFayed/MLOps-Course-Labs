@@ -33,10 +33,12 @@ jobs:
     - name: Install dependencies
       run: |
         pip install -r requirements.txt
-        pip install -e . --config-settings=editable-mode=strict
-
+        # Install in development mode with adjusted path
+        PYTHONPATH=. pip install -e .
+    
     - name: Run pytest
       run: |
+        # Run tests as module to handle relative imports
         python -m pytest tests/test_api.py -v
 
     - name: Log in to Amazon ECR

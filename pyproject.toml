@@ -3,8 +3,9 @@ requires = ["setuptools>=42"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "mlops-course-labs"
+name = "MLOps-Course-Labs"  # Must match import name
 version = "0.1.0"
 
 [tool.setuptools]
-packages = ["MLOps_Course_Labs"]  # Use underscore naming
+packages = ["MLOps_Course_Labs"]  # Internal Python name (underscores)
+package-dir = {"MLOps_Course_Labs" = "."}  # Maps to root dir
