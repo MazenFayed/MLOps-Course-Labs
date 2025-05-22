@@ -5,3 +5,4 @@ pydantic
 mlflow
 pytest
 prometheus_fastapi_instrumentator
+httpx
