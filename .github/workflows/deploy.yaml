@@ -13,10 +13,7 @@ env:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./app
-
+    
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
@@ -40,7 +37,7 @@ jobs:
 
     - name: Run pytest
       run: |
-        pytest test.py -v
+        pytest tests/test_api.py -v
 
     - name: Log in to Amazon ECR
       id: login-ecr
@@ -83,5 +80,5 @@ jobs:
 
 #           docker-compose down || true
 #           docker-compose pull
-#           docker-compose up -d
-#         EOF
+#           docker-compose up -d
+#         EOF
