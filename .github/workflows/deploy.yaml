@@ -58,10 +58,10 @@ jobs:
         docker push $FULL_IMAGE_NAME
         echo "ECR_IMAGE=$FULL_IMAGE_NAME" >> $GITHUB_ENV
 
-    - name: Setup SSH
-      run: |
-        echo "${{ secrets.EC2_SSH_KEY }}" | base64 -d > ec2_key.pem
-        chmod 400 ec2_key.pem
+    # - name: Setup SSH
+    #   run: |
+    #     echo "${{ secrets.EC2_SSH_KEY }}" | base64 -d > ec2_key.pem
+    #     chmod 400 ec2_key.pem
 
     - name: Deploy to EC2
       uses: appleboy/ssh-action@master
@@ -71,7 +71,7 @@ jobs:
         key: ${{ secrets.EC2_SSH_KEY }}  
         script: |
           aws ecr get-login-password --region ${{ secrets.AWS_REGION }} | docker login --username AWS --password-stdin ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com
-          docker pull ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/churn-prediction:latest
+          docker pull ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/churn-prediction:Mazen289
           docker stop churn-prediction || true 
           docker rm churn-prediction || true
-          docker run -d -p 443:8000 --name churn-prediction ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/churn-prediction:latest 
+          docker run -d -p 443:8000 --name churn-prediction ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/churn-prediction:Mazen289 
