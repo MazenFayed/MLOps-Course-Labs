@@ -65,33 +65,18 @@ jobs:
 
     - name: Deploy to EC2
       run: |
-        ssh -o StrictHostKeyChecking=no \
-            -i ec2_key.pem \
-            ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
-        # Create personal directory
-        mkdir -p ~/mazen-app
-        cd ~/mazen-app
-        
-        # Clone or update repo
-        if [ -d "MLOps-Course-Labs" ]; then
-            cd MLOps-Course-Labs
-            git pull
-        else
-            git clone https://github.com/${{ github.repository }}.git
-            cd MLOps-Course-Labs
-        fi
-        
-        # Login to ECR
-        aws ecr get-login-password --region ${{ secrets.AWS_REGION }} | \
-            docker login --username AWS --password-stdin ${{ steps.login-ecr.outputs.registry }}
-        
-        # Update and deploy
-        sed -i "s|image:.*|image: $ECR_IMAGE|" docker-compose.yml
-        docker-compose down || true
-        docker-compose pull
-        docker-compose up -d
-        
-        # Add identification
-        echo "Deployed by Mazen on $(date)" > deployment-info.txt
-        EOF
-                echo "Deployment completed on EC2 instance."
+        ssh -o StrictHostKeyChecking=no -i ec2_key.pem ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
+          sudo yum update -y || sudo apt update -y
+          sudo yum install -y git docker || sudo apt install -y git docker.io
+          sudo service docker start || sudo systemctl start docker
+          sudo usermod -aG docker $USER
+          mkdir -p ~/Mazen
+          cd ~/Mazen
+          git clone https://github.com/${{ github.repository }} || cd $(basename "${{ github.repository }}") && git pull
+
+          aws ecr get-login-password --region ${{ secrets.AWS_REGION }} \
+            | docker login --username AWS --password-stdin ${{ steps.login-ecr.outputs.registry }}
+
+          cd $(basename "${{ github.repository }}")
+          sed -i "s|image:.*|image: $ECR_IMAGE|" docker-compose.yml
+          EOF
